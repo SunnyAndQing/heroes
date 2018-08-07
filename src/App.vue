@@ -34,7 +34,7 @@
           <!-- 侧边栏公共部分 -->
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h2 class="sub-header">Hero List</h2>
+          <!-- <h2 class="sub-header">Hero List</h2>
           <a class="btn btn-success" href="add.html">Add</a>
           <div class="table-responsive">
             <table class="table table-striped">
@@ -243,7 +243,11 @@
                 </tr>
               </tbody>
             </table>
-          </div>
+          </div> -->
+
+          <!-- 英雄组件 -->
+          <router-view></router-view>
+          <!-- 英雄组件 -->
         </div>
       </div>
     </div>
