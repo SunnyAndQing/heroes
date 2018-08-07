@@ -16,16 +16,22 @@
       </div>
     </nav> -->
     <app-header></app-header>
-    
+    <!-- 头部公共部分 -->
+
+
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
+          <!-- <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Reports</a></li>
             <li><a href="#">Analytics</a></li>
             <li><a href="#">Export</a></li>
-          </ul>
+          </ul> -->
+
+          <!-- 侧边栏公共部分 -->
+          <app-slider></app-slider>
+          <!-- 侧边栏公共部分 -->
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h2 class="sub-header">Hero List</h2>
@@ -248,11 +254,13 @@
 
 // 导入AppHeader.vue组件
 import AppHeader from './components/AppHeader.vue';
+import AppSlider from './components/AppSlider.vue';
 
 export default {
   // 配置组件选项
   components: {
-    AppHeader
+    AppHeader,
+    AppSlider
   }
 }
 </script>
