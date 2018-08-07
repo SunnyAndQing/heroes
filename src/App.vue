@@ -1,7 +1,8 @@
 <template>
   <div id="app">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <!-- 头部公共部分 -->
+    <!-- <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -13,7 +14,9 @@
           <a class="navbar-brand" href="#">CRUD</a>
         </div>
       </div>
-    </nav>
+    </nav> -->
+    <app-header></app-header>
+    
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
@@ -242,12 +245,14 @@
 </template>
 
 <script>
+
+// 导入AppHeader.vue组件
+import AppHeader from './components/AppHeader.vue';
+
 export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+  // 配置组件选项
+  components: {
+    AppHeader
   }
 }
 </script>
