@@ -1,7 +1,8 @@
 <template>
     <div>
         <h2 class="sub-header">英雄管理</h2>
-        <a class="btn btn-success" href="add.html">添加</a>
+        <!-- <a class="btn btn-success" href="add.html">添加</a> -->
+        <router-link class="btn btn-success" to="/heroes/add">添加</router-link>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -19,9 +20,10 @@
                         <td>{{ item.name }}</td>
                         <td>{{ item.gender }}</td>
                         <td>
-                        <a href="edit.html">edit</a>
+                        <!-- <a href="edit.html">edit</a> -->
+                        <router-link :to="'/heroes/edit' + item.id" >edit</router-link>
                         &nbsp;&nbsp;
-                        <a href="javascript:window.confirm('Are you sure?')">delete</a>
+                        <a @click.prevent="deleteHero(item.id)" href="javascript:window.confirm('Are you sure?')">delete</a>
                         </td>
                     </tr>
                 
@@ -43,17 +45,38 @@
            };
        },
        created () {
-           axios
-            .get('http://localhost:3000/heroes')
-            .then( (response)=> {
-                if (response.status === 200) {
-                    this.list = response.data;
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+           this.loadData();
+       },
+
+       methods: {
+            loadData () {
+                axios
+                    .get('http://localhost:3000/heroes')
+                    .then( (response)=> {
+                        if (response.status === 200) {
+                            this.list = response.data;
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            deleteHero (id) {
+                axios
+                    .delete(`http://localhost:3000/heroes/${id}`)
+                    .then((response) => {
+                        if (response.status === 200) {
+                            this.loadData();
+                            alert('删除成功！');
+                        }
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+
+            }
        }
+       
     }
 </script>
 
